@@ -4,7 +4,9 @@ import { VehicleComponent } from './vehicle.component';
 
 @NgModule({
     imports: [
-        CommonModule,
+        CommonModule
+    ],
+    declarations: [
         VehicleComponent
     ],
     exports: [

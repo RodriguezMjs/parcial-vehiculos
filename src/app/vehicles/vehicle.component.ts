@@ -5,7 +5,7 @@ import { VehicleModel } from './models/vehicles.models';
 @Component({
     selector: 'app-vehicles',
     templateUrl: './vehicle.component.html',
-    standalone: true,
+    standalone: false,
 })
 export class VehicleComponent implements OnInit {
     constructor(private vehiclesService: VehiclesService) {}
@@ -15,7 +15,7 @@ export class VehicleComponent implements OnInit {
         this.getVehicles();
     }
 
-    private getVehicles(){
+    public getVehicles(){
         this.vehiclesService.getVehicles().subscribe({
             error: (error) => {
                 console.error('Error fetching vehicles:', error);
