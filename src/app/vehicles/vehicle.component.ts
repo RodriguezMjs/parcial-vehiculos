@@ -25,4 +25,18 @@ export class VehicleComponent implements OnInit {
             }
         });
     }
+
+    public getMarcasCount(): { marca: string, count: number }[] {
+        const marcasMap = new Map<string, number>();
+        
+        this.vehicles.forEach(vehicle => {
+            const count = marcasMap.get(vehicle.marca) || 0;
+            marcasMap.set(vehicle.marca, count + 1);
+        });
+
+        return Array.from(marcasMap.entries()).map(([marca, count]) => ({
+            marca,
+            count
+        }));
+    }
 }
